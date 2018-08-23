@@ -14,7 +14,7 @@ import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [AppComponent, WeatherComponent, DailyWeatherComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyA5OVcqswPubjJdgfpInFabGb3csrK7Ckw', libraries: ['places'], language: 'en'
+      apiKey: '', libraries: ['places'], language: 'en'
     })],
   providers: [WeatherService],
   bootstrap: [AppComponent],
