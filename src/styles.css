@@ -10,6 +10,27 @@ body {
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+header {
+    color: #5f5e5e;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header>h1 {
+    text-decoration: uppercase;
+    margin-bottom: 5px;
+}
+
+header>h2 {
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.btn-next {
+    padding: 0 10px 10px;
+}
+
 .btn {
     display: block;
     padding: 10px;
@@ -31,7 +52,7 @@ body {
 /* Weather List */
 
 .weather-list {
-    padding: 0;
+    padding: 10px;
 }
 
 .weather-item {

@@ -22,7 +22,7 @@ export class DailyWeatherComponent implements OnInit {
       this.weatherService.getDailyCityWeather(this.cityName).subscribe(resp => {
         this.loading = false;
         this.dailyReport = resp;
-        console.log(this.dailyReport);
+        console.log('daily', this.dailyReport);
       });
     } else {
       this.router.navigate(['/']);

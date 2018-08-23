@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 export class WeatherService {
   private apiBaseUrl = 'https://api.weatherbit.io/v2.0/forecast/';
   private apiKey = 'be0b87ebd406401792d51239944fad5e';
+  public city: any;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -24,17 +25,17 @@ export class WeatherService {
       } else {
         reject(new Error('Geolocation is not supported'));
       }
-    });
+    })
 
-  getHourlyCityWeather = (cityName = null, lat?: any, long?: any): Observable<any> =>
+  getHourlyCityWeather = (cityName: string): Observable<any> =>
     this.httpClient
       .get<any>(`${this.apiBaseUrl}hourly?city=${cityName}&key=${this.apiKey}&hours=24`)
-      .pipe(map(this.parseHourlyResponse));
+      .pipe(map(this.parseHourlyResponse))
 
   getHourlyLocationWeather = ({ longitude, latitude }: { longitude: number; latitude: number }): Observable<any> =>
     this.httpClient
       .get<any>(`${this.apiBaseUrl}hourly?lat=${latitude}&lon=${longitude}&key=${this.apiKey}&hours=24`)
-      .pipe(map(this.parseHourlyResponse));
+      .pipe(map(this.parseHourlyResponse))
 
   getDailyCityWeather(cityName: string): Observable<any> {
     const apiCall = `${this.apiBaseUrl}daily?city=${cityName}&key=${this.apiKey}`;
@@ -69,5 +70,5 @@ export class WeatherService {
             new Date(weatherItem.timestamp_local).getTime() - new Date(weatherItemB.timestamp_local).getTime()
         ),
     };
-  };
+  }
 }

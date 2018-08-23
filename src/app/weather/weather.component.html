@@ -1,5 +1,5 @@
 <div class="form-group">
-    <input type="text" [(ngModel)]="cityName" class="form-control" placeholder="Enter city name" (keyup.enter)="getWeatherByCity()">
+    <input type="text" [(ngModel)]="weatherService.city" class="form-control" placeholder="Enter city name" (blur)="getWeatherByCity()" autocorrect="off" autocapitalize="off" width="1500px" spellcheck="off" #search>
     <button (click)="getLocationWeather()" class="location-btn">
         <img src="../assets/icons/place.svg" alt="get your location" class="location">
     </button>
@@ -8,7 +8,7 @@
 <div *ngIf="weather && weather.length > 0">
     <section class="container">
         <header>
-            <h1>{{cityName}}</h1>
+            <h1>{{weatherService.city}}</h1>
             <h2>{{today | date}}</h2>
         </header>
         <section class="hourly-weather">
@@ -22,8 +22,8 @@
             </ul>
         </section>
     </section>
-    <div>
-        <a class="btn" routerLink="/daily" [queryParams]="{city: cityName}" (click)="callWeatherServiceDaily()">Next 10 days</a>
+    <div class="btn-next">
+        <a class="btn" routerLink="/daily" [queryParams]="{city: weatherService.city}">Next 10 days</a>
     </div>
 </div>
 <div *ngIf="weather && weather.length <= 0">

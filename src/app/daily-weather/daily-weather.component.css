@@ -1,0 +1,9 @@
+.min_temp {
+    color: #818184;
+}
+
+@media screen and (max-width: 430px) {
+    .weather-description {
+        display: none;
+    }
+}
