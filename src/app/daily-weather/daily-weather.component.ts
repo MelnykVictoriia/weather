@@ -22,7 +22,6 @@ export class DailyWeatherComponent implements OnInit {
       this.weatherService.getDailyCityWeather(this.cityName).subscribe(resp => {
         this.loading = false;
         this.dailyReport = resp;
-        console.log('daily', this.dailyReport);
       });
     } else {
       this.router.navigate(['/']);
