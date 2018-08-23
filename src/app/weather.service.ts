@@ -39,7 +39,6 @@ export class WeatherService {
 
   getDailyCityWeather(cityName: string): Observable<any> {
     const apiCall = `${this.apiBaseUrl}daily?city=${cityName}&key=${this.apiKey}`;
-    console.log('apiCall', apiCall);
     return this.httpClient.get<any>(apiCall).pipe(
       map(response => {
         if (!response || !Array.isArray(response.data)) {
