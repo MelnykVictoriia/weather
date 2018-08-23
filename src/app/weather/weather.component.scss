@@ -1,0 +1,48 @@
+.form-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    width: 80%;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 4px;
+    box-shadow: none;
+    transition: background 0.4s, box-shadow 0.2s;
+    border: 1px solid #ccc;
+    &:focus {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
+        background: #fff;
+        color: #3a3c4c;
+    }
+}
+
+header {
+    color: #5f5e5e;
+    text-align: center;
+    margin-bottom: 40px;
+    h1 {
+        text-decoration: uppercase;
+        margin-bottom: 5px;
+    }
+    h2 {
+        margin-top: 5px;
+        font-size: 18px;
+        font-weight: normal;
+    }
+}
+
+.location-btn {
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.6;
+    }
+    img {
+        max-width: 80px;
+        width: 100%;
+    }
+}

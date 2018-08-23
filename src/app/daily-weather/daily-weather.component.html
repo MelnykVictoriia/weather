@@ -1,0 +1,18 @@
+<div *ngIf="loading">Loading...</div>
+
+<section class="week-days" *ngIf="dailyReport && dailyReport.length > 0">
+    <div class="row">
+        <ul class="weather-list">
+            <li class="weather-item" *ngFor="let dayReport of dailyReport">
+                <span>{{dayReport.valid_date}}</span>
+                <div><img src="https://www.weatherbit.io/static/img/icons/{{dayReport.weather.icon}}.png" alt="" class="weather-icon"></div>
+                <span>{{dayReport.weather.description}}</span>
+                <span>{{dayReport.max_temp}}&deg;C</span>
+                <span>{{dayReport.min_temp}}&deg;C</span>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <a class="btn" routerLink="/" [queryParams]="{city: cityName}">Hourly page</a>
+    </div>
+</section>

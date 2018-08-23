@@ -1,0 +1,31 @@
+<div class="form-group">
+    <input type="text" [(ngModel)]="cityName" class="form-control" placeholder="Enter city name" (keyup.enter)="getWeatherByCity()">
+    <button (click)="getLocationWeather()" class="location-btn">
+        <img src="../assets/icons/place.svg" alt="get your location" class="location">
+    </button>
+</div>
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="weather && weather.length > 0">
+    <section class="container">
+        <header>
+            <h1>{{cityName}}</h1>
+            <h2>{{today | date}}</h2>
+        </header>
+        <section class="hourly-weather">
+            <ul class="weather-list">
+                <li class="weather-item" *ngFor="let weatherItem of weather">
+                    <span>{{weatherItem.hour}}:00</span>
+                    <div><img src="https://www.weatherbit.io/static/img/icons/{{weatherItem.weather.icon}}.png" alt="" class="weather-icon"></div>
+                    <span>{{weatherItem.weather.description}}</span>
+                    <span>{{weatherItem.temp}}&deg;C</span>
+                </li>
+            </ul>
+        </section>
+    </section>
+    <div>
+        <a class="btn" routerLink="/daily" [queryParams]="{city: cityName}" (click)="callWeatherServiceDaily()">Next 10 days</a>
+    </div>
+</div>
+<div *ngIf="weather && weather.length <= 0">
+    <span>No weather found for this city!</span>
+</div>
